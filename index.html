@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css" >
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="header-logo">
+                <img src="./images/logo-image.png" alt="Todo logo">
+                <svg class="logo" width="126" height="73">
+                    <use href="./icons/symbol-defs.svg#icon-text-todo"></use>
+                </svg>
+            </div>
+            <p class="header-text">Organize and complete your pending tasks easily.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="todo-app">
+            <div class="todo-header">
+                <h2 class="todo-article">Your Tasks</h2>
+
+                <div class="todo-search-bar">
+                    <svg class="todo-input-icon-search" width="24" height="24">
+                        <use href="./icons/symbol-defs.svg#icon-magnifying-glass"></use>
+                    </svg>
+
+                    <input type="text" placeholder="Search tasks" class="todo-input" id="todo-input"/>
+
+                    <button type="button" class="search-btn">
+                        <svg width="24" height="24">
+                            <use href="./icons/symbol-defs.svg#icon-magnifying-glass"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tasks-container">
+                <div class="qualitity-box">
+                    <div class="qualitty-articles-1">
+                        <p class="qualitity-article-1">Total tasks:</p>
+                        <p class="qualitity-article-2" id="count-tasks">0</p>
+                    </div>
+
+                    <div class="qualitty-articles-2">
+                        <p class="qualitity-article-1">Completed:</p>
+                        <p class="qualitity-article-2" id="completed-tasks">0 of 0</p>
+                    </div>
+                </div>
+
+                <span class="qualitity-line"></span>
+
+                <div class="tasks-box" id="tasks-box">
+                    <div class="tasks-box-text" id="tasks-box-text">
+                        <svg class="tasks-icon" width="100" height="100">
+                            <use href="./icons/symbol-defs.svg#icon-plus-circle"></use>
+                        </svg>
+                        <p class="tasks-article-1">You have no pending tasks</p>
+                        <p class="tasks-article-2">Create one to get started</p>
+                    </div>
+
+                    <ul class="tasks-list" id="tasks-list">
+                    </ul>
+                </div>
+
+                <button type="button" class="add-btn" id="add-btn">
+                    <svg class="icon-add" width="24" height="24">
+                        <use href="./icons/symbol-defs.svg#icon-plus"></use>
+                    </svg>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="./script.js" defer></script>
+    <div class="modal is-hidden" id="modal">
+        <div class="modal-content">
+            <h2 class="modal-article">Create Task</h2>
+            <div class="modal-input-box">
+                    <svg class="icon-modal" width="24" height="24">
+                        <use href="./icons/symbol-defs.svg#icon-pencil"></use>
+                    </svg>
+                <input type="text" class="modal-input" placeholder="Write the task name..." id="modal-input">
+            </div>
+            <div class="modal-buttons">
+                <button type="button" class="cancel-btn" id="btn-cancel">Cancel</button>
+                <button type="button" class="accept-btn" id="btn-accept">Accept</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
