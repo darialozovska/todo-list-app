@@ -359,10 +359,6 @@ p {
     color: #FFFFFF;
 }
 
-.is-hidden {
-    display: none;
-} 
-
 /* TASKS LIST */
 .tasks-list {
     display: flex;
@@ -378,7 +374,7 @@ p {
     padding: 16px 24px;
     background-color: #121215;
     border-radius: 8px;
-    width: 1072px;
+    min-width: 1072px;
 }
 
 .tasks-list-text {
@@ -397,4 +393,8 @@ p {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
+}
+
+.is-hidden {
+    display: none;
 }

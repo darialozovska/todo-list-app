@@ -1,11 +1,21 @@
+// BUTTONS
 const addBtn = document.querySelector("#add-btn");
-const modal = document.getElementById("modal");
 const cancelBtn = document.querySelector("#btn-cancel");
 const acceptBtn = document.querySelector("#btn-accept");
+
+// MODAL
+const modal = document.getElementById("modal");
 const inputModal = document.getElementById("modal-input");
+
+// TASKS
 const tasksBoxContent = document.getElementById("tasks-list");
 const tasksBoxText = document.getElementById("tasks-box-text");
 const countTasks = document.querySelector("#count-tasks");
+const completedTasks = document.querySelector("#completed-tasks");
+
+// SEARCH BAR
+const inputSearch = document.getElementById("todo-input");
+
 
 addBtn.addEventListener('click', () => {
     modal.classList.remove('is-hidden');
@@ -21,7 +31,6 @@ acceptBtn.addEventListener('click', () => {
     } else {
         const li = document.createElement("li");
         li.classList.add("tasks-list-item");
-        const countLi =  li.setAttribute("id", "1");
 
         const buttonIcon = document.createElement("button");
         buttonIcon.classList.add('btn-icon');
@@ -43,7 +52,6 @@ acceptBtn.addEventListener('click', () => {
         li.appendChild(p);
 
         tasksBoxContent.appendChild(li);
-        countLi += 1;
         tasksBoxContent.classList.remove("is-hidden");
         modal.classList.add("is-hidden");
         tasksBoxText.classList.add("is-hidden");
@@ -51,12 +59,43 @@ acceptBtn.addEventListener('click', () => {
 
 
         buttonIcon.addEventListener('click', () => {
+            li.classList.add("completed");
             p.style.textDecoration = "line-through";
             use.setAttribute("href", "./icons/symbol-defs.svg#icon-check-circle");
-    })
+            updateCounter();
+        })
+        updateCounter();
     }
 })
 
-function updateCounters() {
+
+function updateCounter() {
+    const allTasks = document.querySelectorAll("li");
+    const total = allTasks.length;
+    const completedTasksClass = document.querySelectorAll(".completed");
+    const completed = completedTasksClass.length;
+    countTasks.textContent = `${total}`;
+    completedTasks.textContent = `${completed} of ${total}`;
     
 }
+
+inputSearch.addEventListener('input', () => {
+    const allTasksText = document.querySelectorAll(".tasks-list-text");
+
+    const inputValue = inputSearch.value.toLowerCase();
+
+    allTasksText.forEach(task => {
+        const taskValue = task.textContent.toLowerCase();
+
+        if (taskValue.includes(inputValue)) {
+            task.parentElement.classList.remove("is-hidden");
+        } else {
+            task.parentElement.classList.add("is-hidden");
+        }
+        console.log(inputValue)
+        console.log(taskValue);
+        console.log(taskValue.includes(inputValue));
+        console.log(task.parentElement)
+    })
+    
+})
